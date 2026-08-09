@@ -351,12 +351,16 @@
           </div>
 
           <!-- Profile image in About tab -->
-          <div class="w-64 h-72 relative flex-shrink-0 flex items-center justify-center overflow-hidden group">
-            <div class="absolute inset-0 bg-purple-600/10 blur-2xl pointer-events-none"></div>
-            <img src="./assets/images/hero.png" alt="Faiz"
-              class="w-full h-full object-contain object-bottom group-hover:scale-105 transition-transform duration-500">
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-[#09090B] via-transparent to-transparent pointer-events-none">
+          <div class="w-64 h-72 relative flex-shrink-0 group">
+            <!-- Ambient background glow (behind the container) -->
+            <div class="absolute -inset-4 bg-purple-600/15 blur-3xl pointer-events-none rounded-full"></div>
+            <!-- Image frame with border and overflow crop -->
+            <div class="w-full h-full relative rounded-2xl overflow-hidden flex items-center justify-center border border-lightBorder bg-darkCard/10">
+              <img src="./assets/images/hero.png" alt="Faiz"
+                class="w-full h-full object-contain object-bottom group-hover:scale-105 transition-transform duration-500">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#09090B] via-transparent to-transparent pointer-events-none">
+              </div>
             </div>
           </div>
         </div>
