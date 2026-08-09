@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+  </defs>
+  <!-- Beautiful abstract tech logo 'F' -->
+  <path d="M30 20 H75 C80 20 80 28 75 30 H42 V45 H70 C75 45 75 53 70 55 H42 V75 C42 80 38 80 35 80 C32 80 30 78 30 75 V25 Z" fill="url(#grad1)" />
+  <circle cx="75" cy="75" r="8" fill="url(#grad2)" />
+</svg>

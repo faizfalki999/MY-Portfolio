@@ -1,0 +1,79 @@
+/* =================================================================
+   1. DESIGN SYSTEM & CSS CUSTOM PROPERTIES
+   ================================================================= */
+:root {
+  /* Theme Colors */
+  --bg-dark: #09090B;
+  --card-dark: #121214;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.25);
+  
+  /* Text Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  
+  /* Accent Colors */
+  --accent-purple: #C084FC;
+  --accent-blue: #60A5FA;
+  --accent-red: #F87171;
+  --accent-emerald: #34D399;
+  --accent-amber: #FBBF24;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Kanit', sans-serif;
+  --font-handwritten: 'Caveat', cursive;
+
+  /* Layout & Animation */
+  --radius-card: 1rem;
+  --radius-full: 9999px;
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-out;
+}
+
+/* =================================================================
+   2. GLOBAL BASE & RESET
+   ================================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3F3F46;
+}
+
+/* Font Helper Utility Classes */
+.font-handwritten {
+  font-family: var(--font-handwritten);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}

@@ -1,0 +1,29 @@
+/* =================================================================
+   RESPONSIVE MEDIA QUERIES & BREAKPOINTS
+   ================================================================= */
+
+/* Desktop & Laptop Enhancements (1024px and up) */
+@media (min-width: 1024px) {
+  .hero-portrait-container {
+    justify-content: flex-end;
+  }
+}
+
+/* Tablet Adjustments (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-portrait-container {
+    justify-content: center;
+  }
+}
+
+/* Mobile Devices (Under 768px) */
+@media (max-width: 767px) {
+  header nav {
+    display: none;
+  }
+  
+  .hero-portrait-container {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}

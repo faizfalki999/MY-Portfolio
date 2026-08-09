@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faiz -- Portfolio & Creator</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/images/logo.svg">
+
+  <!-- Google Fonts: Inter (UI), Caveat (Handwritten), Kanit (Headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=Kanit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Theme Extensions -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            darkBg: '#09090B',
+            darkCard: '#121214',
+            lightBorder: 'rgba(255, 255, 255, 0.08)',
+            textPrimary: '#FFFFFF',
+            textSecondary: '#A1A1AA',
+            textMuted: '#71717A',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Kanit', 'sans-serif'],
+            handwritten: ['Caveat', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+
+  <!-- Core Data & Config Scripts -->
+  <script src="./js/config.js"></script>
+  <script src="./js/data/metrics.js"></script>
+  <script src="./js/data/projects.js"></script>
+  <script src="./js/data/videos.js"></script>
+  <script src="./js/data/businesses.js"></script>
+
+  <!-- Supabase CDN and Client Adapter -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./js/supabase-db.js"></script>
+
+  <!-- Application Modules -->
+  <script src="./js/navigation.js"></script>
+  <script src="./js/render.js"></script>
+  <script src="./js/main.js"></script>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between selection:bg-zinc-800 selection:text-white">
+
+  <!-- PAGE WRAPPER WITH INNER BORDER AS PER DESIGN MOCKUP -->
+  <div class="flex-grow w-full max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex flex-col justify-between">
+
+    <!-- =========================================
+         1. HEADER & NAVIGATION SECTION
+    ========================================= -->
+    <header
+      class="flex items-center justify-between border border-lightBorder rounded-2xl px-6 py-4 bg-darkCard/30 backdrop-blur-md z-30 mb-8">
+      <!-- Logo -->
+      <a href="#" onclick="switchTab('home')"
+        class="flex items-center gap-2 group">
+        <img src="./assets/images/logo.svg" alt="Faiz Logo" class="w-8 h-8 group-hover:scale-105 transition-transform duration-300">
+        <span class="font-display font-bold text-lg tracking-wider text-textPrimary group-hover:text-purple-400 transition-colors duration-300">FAIZ</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-textSecondary uppercase tracking-wider">
+        <button onclick="switchTab('home')" id="nav-home"
+          class="hover:text-textPrimary transition-colors active-nav-link">Home</button>
+        <button onclick="switchTab('projects')" id="nav-projects"
+          class="hover:text-textPrimary transition-colors">Projects</button>
+        <button onclick="switchTab('videos')" id="nav-videos"
+          class="hover:text-textPrimary transition-colors">Videos</button>
+        <button onclick="switchTab('businesses')" id="nav-businesses"
+          class="hover:text-textPrimary transition-colors">Businesses</button>
+        <button onclick="switchTab('about')" id="nav-about"
+          class="hover:text-textPrimary transition-colors">About</button>
+        <button onclick="switchTab('contact')" id="nav-contact"
+          class="hover:text-textPrimary transition-colors">Contact</button>
+      </nav>
+
+      <!-- Let's Talk CTA Button -->
+      <a href="https://wa.me/923237858574" target="_blank"
+        class="inline-flex items-center gap-2 border border-lightBorder hover:border-textPrimary/40 rounded-full px-5 py-2 text-xs sm:text-sm font-medium uppercase tracking-widest text-textPrimary hover:bg-white/5 transition-all duration-300">
+        <span>Let's Talk</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </header>
+
+    <!-- MOBILE MENU TOGGLE BAR -->
+    <div class="flex md:hidden justify-center mb-6">
+      <div
+        class="flex items-center gap-4 border border-lightBorder rounded-full px-4 py-2 bg-darkCard/50 text-xs uppercase font-medium tracking-wider text-textSecondary overflow-x-auto max-w-full">
+        <button onclick="switchTab('home')" id="mob-home" class="px-2 text-textPrimary font-semibold">Home</button>
+        <button onclick="switchTab('projects')" id="mob-projects" class="px-2">Projects</button>
+        <button onclick="switchTab('videos')" id="mob-videos" class="px-2">Videos</button>
+        <button onclick="switchTab('businesses')" id="mob-businesses" class="px-2">Businesses</button>
+        <button onclick="switchTab('about')" id="mob-about" class="px-2">About</button>
+        <button onclick="switchTab('contact')" id="mob-contact" class="px-2">Contact</button>
+      </div>
+    </div>
+
+    <!-- MAIN INTERACTIVE CONTENT CONTAINER -->
+    <main class="flex-grow flex flex-col justify-center">
+
+      <!-- =========================================
+           2. HOME TAB SECTION
+      ========================================= -->
+      <div id="tab-home" class="tab-content active">
+        <!-- Hero Section Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-10 relative">
+          <!-- Left side content (Columns 1-7) -->
+          <div class="lg:col-span-7 flex flex-col items-start gap-5 relative z-10 text-left">
+            <!-- Badge -->
+            <div
+              class="inline-flex items-center gap-2 border border-lightBorder bg-darkCard/30 backdrop-blur-md rounded-full px-4 py-2 text-xs uppercase tracking-widest text-textSecondary">
+              <span class="w-2 h-2 rounded-full border border-purple-400 bg-purple-500/20"></span>
+              <span>Developer • Entrepreneur • Creator</span>
+            </div>
+
+            <!-- Heading -->
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] font-display">
+              Hi, I'm <span class="text-textSecondary">Faiz</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-xl sm:text-2xl text-textSecondary font-light max-w-2xl leading-relaxed">
+              I build websites, software & brands <br class="hidden sm:inline">
+              that <span class="text-textPrimary font-normal border-b border-zinc-700 pb-0.5">make an impact.</span>
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap items-center gap-4 mt-2">
+              <button onclick="switchTab('projects')"
+                class="inline-flex items-center gap-2.5 bg-zinc-800 hover:bg-zinc-700 text-white rounded-xl px-7 py-4 text-sm font-medium uppercase tracking-wider transition-colors duration-200">
+                <span>View My Work</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+
+              <a href="./assets/documents/CV.docx" download="Faiz_CV.docx"
+                class="inline-flex items-center gap-2 border border-lightBorder hover:border-textPrimary/40 rounded-xl px-7 py-4 text-sm font-medium uppercase tracking-wider text-textPrimary hover:bg-white/5 transition-all duration-200">
+                <span>Download CV</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right side avatar portrait (Columns 8-12) -->
+          <div class="lg:col-span-5 flex justify-center lg:justify-end relative">
+            <div
+              class="relative w-[280px] sm:w-[360px] md:w-[420px] h-[340px] sm:h-[420px] md:h-[480px] flex items-center justify-center">
+              <!-- Ambient background radial glow -->
+              <div class="absolute inset-0 bg-purple-600/15 blur-3xl pointer-events-none rounded-full"></div>
+
+              <!-- Seamless blended picture container -->
+              <div class="relative w-full h-full group flex items-end justify-center">
+                <img src="./assets/images/hero.png" alt="Faiz"
+                  class="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+
+                <!-- Bottom & side gradient fade overlays for seamless background blending -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-[#09090B] via-[#09090B]/30 to-transparent pointer-events-none">
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-[#09090B]/50 via-transparent to-[#09090B]/50 pointer-events-none">
+                </div>
+              </div>
+
+              <!-- Handwritten Text Callout on Top Right -->
+              <div
+                class="absolute -top-4 -right-6 sm:-right-10 md:-right-12 flex flex-col items-center z-20 pointer-events-none">
+                <span class="font-handwritten text-lg sm:text-2xl text-purple-300 -rotate-12 select-none leading-none">
+                  Turning ideas<br>&nbsp;&nbsp;into reality
+                </span>
+                <!-- Curly hand-drawn arrow pointing to avatar -->
+                <svg class="w-10 h-10 text-purple-400/80 -mt-1 ml-4" fill="none" stroke="currentColor"
+                  stroke-width="1.5" viewBox="0 0 40 40">
+                  <path d="M10,5 C15,12 25,12 20,22 C18,26 12,25 15,32 M15,32 L20,29 M15,32 L11,28"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =========================================
+             3. METRICS SECTION
+        ========================================= -->
+        <div class="border border-lightBorder rounded-2xl bg-darkCard/20 p-6 md:p-8 mb-10">
+          <div id="metrics-container"
+            class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-lightBorder">
+            <!-- Dynamically populated from js/data/metrics.js -->
+          </div>
+        </div>
+
+        <!-- =========================================
+             4. 4-COLUMN HOME HIGHLIGHTS GRID
+        ========================================= -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+
+          <!-- Column 1: FEATURED PROJECTS -->
+          <div id="home-projects-card"
+            class="border border-lightBorder rounded-2xl bg-darkCard/10 p-5 flex flex-col justify-between hover:border-textSecondary/25 transition-all">
+            <!-- Dynamically populated -->
+          </div>
+
+          <!-- Column 2: LATEST VIDEOS -->
+          <div id="home-videos-card"
+            class="border border-lightBorder rounded-2xl bg-darkCard/10 p-5 flex flex-col justify-between hover:border-textSecondary/25 transition-all">
+            <!-- Dynamically populated -->
+          </div>
+
+          <!-- Column 3: MY BUSINESSES -->
+          <div id="home-businesses-card"
+            class="border border-lightBorder rounded-2xl bg-darkCard/10 p-5 flex flex-col justify-between hover:border-textSecondary/25 transition-all">
+            <!-- Dynamically populated -->
+          </div>
+
+          <!-- Column 4: CONNECT WITH ME -->
+          <div
+            class="border border-lightBorder rounded-2xl bg-darkCard/10 p-5 flex flex-col gap-4 hover:border-textSecondary/25 transition-all">
+            <div
+              class="flex items-center gap-2 text-[10px] sm:text-xs uppercase tracking-widest text-textSecondary font-semibold">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              <span>Connect With Me</span>
+            </div>
+
+            <div id="social-links-container" class="flex flex-col gap-2 flex-grow justify-center">
+              <!-- Dynamically populated from js/config.js -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- =========================================
+           5. FEATURED PROJECTS TAB
+      ========================================= -->
+      <div id="tab-projects" class="tab-content">
+        <div class="text-left max-w-4xl mx-auto mb-10">
+          <div
+            class="inline-flex items-center gap-2 border border-lightBorder bg-darkCard/30 rounded-full px-4 py-2 text-xs uppercase tracking-widest text-textSecondary mb-4">
+            <span class="w-2 h-2 rounded-full border border-blue-400 bg-blue-500/20"></span>
+            <span>My Works</span>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-black font-display text-textPrimary uppercase">Featured Projects</h2>
+          <p class="text-textSecondary mt-2 text-base font-light">Here are the software tools, database designs, and
+            platforms I have engineered.</p>
+        </div>
+
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+          <!-- Dynamically populated from js/data/projects.js -->
+        </div>
+      </div>
+
+      <!-- =========================================
+           6. LATEST VIDEOS TAB
+      ========================================= -->
+      <div id="tab-videos" class="tab-content">
+        <div class="text-left max-w-4xl mx-auto mb-10">
+          <div
+            class="inline-flex items-center gap-2 border border-lightBorder bg-darkCard/30 rounded-full px-4 py-2 text-xs uppercase tracking-widest text-textSecondary mb-4">
+            <span class="w-2 h-2 rounded-full border border-red-400 bg-red-500/20"></span>
+            <span>Education & Content</span>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-black font-display text-textPrimary uppercase">Latest Videos</h2>
+          <p class="text-textSecondary mt-2 text-base font-light">Tutorials, visual logs, and developer walkthroughs I
+            publish on YouTube.</p>
+        </div>
+
+        <div id="videos-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+          <!-- Dynamically populated from js/data/videos.js -->
+        </div>
+      </div>
+
+      <!-- =========================================
+           7. MY BUSINESSES TAB
+      ========================================= -->
+      <div id="tab-businesses" class="tab-content">
+        <div class="text-left max-w-4xl mx-auto mb-10">
+          <div
+            class="inline-flex items-center gap-2 border border-lightBorder bg-darkCard/30 rounded-full px-4 py-2 text-xs uppercase tracking-widest text-textSecondary mb-4">
+            <span class="w-2 h-2 rounded-full border border-emerald-400 bg-emerald-500/20"></span>
+            <span>Entrepreneurship</span>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-black font-display text-textPrimary uppercase">My Businesses</h2>
+          <p class="text-textSecondary mt-2 text-base font-light">Brands, software utilities, and startups I help run
+            and build.</p>
+        </div>
+
+        <div id="businesses-list">
+          <!-- Dynamically populated from js/data/businesses.js -->
+        </div>
+      </div>
+
+      <!-- =========================================
+           8. ABOUT SECTION TAB
+      ========================================= -->
+      <div id="tab-about" class="tab-content">
+        <div class="max-w-4xl mx-auto flex flex-col lg:flex-row items-center gap-10 mb-12">
+          <!-- Text Details -->
+          <div class="flex-grow flex flex-col items-start gap-4 text-left">
+            <div
+              class="inline-flex items-center gap-2 border border-lightBorder bg-darkCard/30 rounded-full px-4 py-2 text-xs uppercase tracking-widest text-textSecondary">
+              <span class="w-2 h-2 rounded-full border border-purple-400 bg-purple-500/20"></span>
+              <span>About Faiz</span>
+            </div>
+            <h2 class="text-4xl sm:text-5xl font-black font-display uppercase text-textPrimary">Creator & Builder</h2>
+            <p class="text-textSecondary font-light leading-relaxed text-base sm:text-lg">
+              I'm Faiz — a BS Artificial Intelligence graduate building projects for curiosity, learning, and
+              opportunities.
+            </p>
+            <p class="text-textSecondary font-light leading-relaxed text-base">
+              I create AI tools, websites, and digital experiments while trying to figure out life, grow my skills, and
+              build a future I'm proud of. This is my journey of building, learning, and becoming.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 w-full mt-4 border-t border-lightBorder pt-6 text-sm">
+              <div>
+                <span class="text-textMuted uppercase tracking-wider block text-xs">University Degree</span>
+                <span class="text-textPrimary font-medium">BS Artificial Intelligence</span>
+              </div>
+              <div>
+                <span class="text-textMuted uppercase tracking-wider block text-xs">Location</span>
+                <span class="text-textPrimary font-medium">Pakistan</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile image in About tab -->
+          <div class="w-64 h-72 relative flex-shrink-0 flex items-center justify-center overflow-hidden group">
+            <div class="absolute inset-0 bg-purple-600/10 blur-2xl pointer-events-none"></div>
+            <img src="./assets/images/hero.png" alt="Faiz"
+              class="w-full h-full object-contain object-bottom group-hover:scale-105 transition-transform duration-500">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-[#09090B] via-transparent to-transparent pointer-events-none">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================
+           9. CONTACT SECTION TAB
+      ========================================= -->
+      <div id="tab-contact" class="tab-content">
+        <div class="max-w-xl mx-auto text-center flex flex-col gap-6 mb-12">
+          <div
+            class="inline-flex items-center gap-2 border border-lightBorder bg-darkCard/30 rounded-full px-4 py-2 text-xs uppercase tracking-widest text-textSecondary mx-auto">
+            <span class="w-2 h-2 rounded-full border border-amber-400 bg-amber-500/20"></span>
+            <span>Get In Touch</span>
+          </div>
+          <h2 class="text-4xl font-black font-display uppercase text-textPrimary">Let&apos;s Connect</h2>
+          <p class="text-textSecondary font-light leading-relaxed text-sm sm:text-base">
+            Have an idea to build, a startup opportunity, or just want to chat about AI? Send me a message directly on
+            WhatsApp or social channels!
+          </p>
+
+          <div class="flex flex-col gap-4 mt-4">
+            <!-- Direct Chat (WhatsApp) -->
+            <a href="https://wa.me/923237858574" target="_blank"
+              class="flex items-center justify-between border border-lightBorder hover:border-green-400/40 rounded-2xl p-5 bg-darkCard/20 hover:bg-green-500/5 transition-all text-left group">
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-green-400 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.734-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.45 4.817 1.45 5.426 0 9.843-4.414 9.846-9.843.002-2.63-1.023-5.102-2.886-6.968C16.46 1.928 13.99 .902 11.36.902c-5.431 0-9.849 4.418-9.852 9.848-.001 1.718.455 3.395 1.32 4.887l-1.02 3.722 3.829-1.005zm14.542-6.52c-.274-.137-1.62-.8-1.87-.892-.25-.09-.434-.137-.617.137-.183.273-.708.892-.868 1.074-.16.183-.32.205-.594.068-.273-.137-1.157-.426-2.204-1.36-.814-.727-1.364-1.626-1.524-1.9-.16-.273-.017-.42.12-.557.124-.124.274-.32.411-.478.137-.158.183-.273.274-.455.09-.183.046-.341-.023-.478-.069-.137-.617-1.488-.846-2.035-.222-.534-.443-.46-.617-.469-.158-.009-.34-.01-.52-.01-.18 0-.476.068-.724.341-.248.273-.948.928-.948 2.264 0 1.336.973 2.628 1.11 2.81.137.183 1.916 2.926 4.641 4.103.648.28 1.153.448 1.547.573.651.207 1.243.178 1.71.109.522-.078 1.62-.662 1.849-1.3.228-.637.228-1.183.16-1.297-.069-.114-.251-.182-.525-.32z" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="font-bold text-textPrimary uppercase tracking-wider block text-base">Direct Chat</span>
+                  <span class="text-sm text-textSecondary font-light">Launch continuous text conversation
+                    instantly</span>
+                </div>
+              </div>
+              <svg class="w-5 h-5 text-textMuted group-hover:text-green-400 transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+
+            <!-- Instagram Direct -->
+            <a href="https://instagram.com/syedfaaiz._" target="_blank"
+              class="flex items-center justify-between border border-lightBorder hover:border-pink-500/40 rounded-2xl p-5 bg-darkCard/20 hover:bg-pink-500/5 transition-all text-left group">
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-pink-400 fill-current" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="font-bold text-textPrimary uppercase tracking-wider block text-base">Instagram
+                    Direct</span>
+                  <span class="text-sm text-textSecondary font-light">Message me on social @syedfaaiz._</span>
+                </div>
+              </div>
+              <svg class="w-5 h-5 text-textMuted group-hover:text-pink-400 transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- =========================================
+         10. FOOTER SECTION WITH QUOTE
+    ========================================= -->
+    <footer class="mt-12 pt-8 border-t border-lightBorder relative w-full text-center">
+      <!-- Quote & Signature -->
+      <div class="flex flex-col items-center justify-center gap-1.5 py-4 select-none relative z-10">
+        <p class="text-textSecondary text-sm sm:text-base tracking-wide font-light">
+          &ldquo; Stay focused, keep building, and never stop learning. &rdquo;
+          <span class="font-handwritten text-purple-300 font-bold text-xl sm:text-2xl ml-2">&mdash; Faiz</span>
+        </p>
+        <div class="mt-2">
+          <span class="text-[10px] text-textMuted">&copy; 2026 Syed Faaiz-ur-Rehman. All rights reserved.</span>
+        </div>
+      </div>
+
+      <!-- Abstract Scribble Graphic Bottom Left -->
+      <div class="absolute -bottom-6 -left-6 sm:bottom-0 sm:left-0 opacity-20 pointer-events-none z-0">
+        <svg class="w-24 h-24 sm:w-32 sm:h-32 text-textSecondary" viewBox="0 0 100 100" fill="none">
+          <path d="M10,80 C15,60 30,50 40,70 C50,90 20,95 10,80 Z M30,90 C45,70 60,60 70,80 C80,100 50,105 30,90 Z"
+            stroke="currentColor" stroke-width="0.75" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <!-- Abstract Outline Star Bottom Right -->
+      <div class="absolute -bottom-4 -right-4 sm:bottom-0 sm:right-0 opacity-20 pointer-events-none z-0">
+        <svg class="w-20 h-20 sm:w-28 sm:h-28 text-textSecondary" viewBox="0 0 100 100" fill="none">
+          <path d="M50,10 L62,38 L92,38 L68,56 L77,85 L50,67 L23,85 L32,56 L8,38 L38,38 Z" stroke="currentColor"
+            stroke-width="0.75" stroke-linejoin="round" />
+        </svg>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
