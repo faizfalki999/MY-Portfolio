@@ -1,0 +1,22 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "Faiz Portfolio & Creator",
+  "main": "index.html",
+  "scripts": {
+    "build:analytics": "esbuild js/analytics-init.js --bundle --outfile=js/analytics.js --format=iife --minify",
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": [
+    "portfolio",
+    "website"
+  ],
+  "author": "Faiz",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
