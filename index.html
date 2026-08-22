@@ -52,9 +52,9 @@
   <script src="./js/data/videos.js"></script>
   <script src="./js/data/businesses.js"></script>
 
-  <!-- Supabase CDN and Client Adapter -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="./js/supabase-db.js"></script>
+  <!-- Supabase CDN and Client Adapter (Deferred to avoid blocking initial parse) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="./js/supabase-db.js" defer></script>
 
   <!-- Application Modules -->
   <script src="./js/navigation.js"></script>
@@ -177,7 +177,7 @@
 
               <!-- Seamless blended picture container -->
               <div class="relative w-full h-full group flex items-end justify-center">
-                <img src="./assets/images/hero.png" alt="Faiz"
+                <img src="./assets/images/hero.png" alt="Faiz" fetchpriority="high" decoding="async"
                   class="w-full h-full object-contain object-bottom drop-shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
 
                 <!-- Bottom & side gradient fade overlays for seamless background blending -->

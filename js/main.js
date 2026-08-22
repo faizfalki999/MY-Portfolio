@@ -5,19 +5,26 @@
  * =================================================================
  */
 
-document.addEventListener('DOMContentLoaded', async () => {
-  // 1. Fetch live data from Supabase if configured (asynchronous)
-  if (typeof window.loadSupabaseData === 'function') {
-    await window.loadSupabaseData();
-  }
-
-  // 2. Render all dynamic content from datasets
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Render static content IMMEDIATELY for instant page load (0ms delay)
   if (typeof window.initRender === 'function') {
     window.initRender();
   }
 
-  // 2. Ensure initial tab state is correctly selected ('home')
+  // 2. Set initial active tab state ('home')
   if (typeof window.switchTab === 'function') {
     window.switchTab('home');
   }
+
+  // 3. Sync live data from Supabase asynchronously in background (non-blocking)
+  if (typeof window.loadSupabaseData === 'function') {
+    window.loadSupabaseData().then(() => {
+      if (typeof window.initRender === 'function') {
+        window.initRender();
+      }
+    }).catch(err => {
+      console.warn("Background Supabase sync skipped:", err);
+    });
+  }
 });
+

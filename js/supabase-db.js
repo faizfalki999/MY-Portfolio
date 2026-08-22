@@ -8,41 +8,46 @@
 async function loadSupabaseData() {
   const config = window.PORTFOLIO_CONFIG;
   if (!config || !config.supabaseUrl || !config.supabaseKey || config.supabaseUrl.includes('your-project')) {
-    console.log("Supabase credentials not configured in js/config.js. Falling back to static data.");
     return;
   }
 
   // Initialize Supabase client using CDN library
   const { createClient } = window.supabase || {};
   if (!createClient) {
-    console.error("Supabase CDN library not loaded.");
     return;
   }
 
   const client = createClient(config.supabaseUrl, config.supabaseKey);
 
+  // Helper with 1.5s timeout to prevent hanging on slow network requests
+  const fetchWithTimeout = (promise, ms = 1500) => {
+    const timeout = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Supabase request timeout')), ms)
+    );
+    return Promise.race([promise, timeout]);
+  };
+
   try {
-    // 1. Fetch metrics
-    const { data: metrics, error: metricsErr } = await client
-      .from('metrics')
-      .select('*')
-      .order('created_at', { ascending: true });
-    
-    if (metrics && metrics.length > 0) {
-      window.METRICS_DATA = metrics.map(m => ({
+    // Parallelize all 3 network calls simultaneously with 1.5s timeout limit
+    const [metricsRes, projectsRes, aboutRes] = await fetchWithTimeout(
+      Promise.all([
+        client.from('metrics').select('*').order('created_at', { ascending: true }),
+        client.from('projects').select('*').order('created_at', { ascending: false }),
+        client.from('about').select('*').eq('id', 1).maybeSingle()
+      ])
+    );
+
+    // 1. Process metrics
+    if (metricsRes && metricsRes.data && metricsRes.data.length > 0) {
+      window.METRICS_DATA = metricsRes.data.map(m => ({
         label: m.label,
         value: m.value
       }));
     }
 
-    // 2. Fetch projects
-    const { data: projects, error: projectsErr } = await client
-      .from('projects')
-      .select('*')
-      .order('created_at', { ascending: false });
-
-    if (projects && projects.length > 0) {
-      window.PROJECTS_DATA = projects.map(p => ({
+    // 2. Process projects
+    if (projectsRes && projectsRes.data && projectsRes.data.length > 0) {
+      window.PROJECTS_DATA = projectsRes.data.map(p => ({
         id: p.id,
         title: p.title,
         description: p.description,
@@ -59,18 +64,12 @@ async function loadSupabaseData() {
       }));
     }
 
-    // 3. Fetch about section
-    const { data: about, error: aboutErr } = await client
-      .from('about')
-      .select('*')
-      .eq('id', 1)
-      .single();
-
-    if (about) {
+    // 3. Process about section
+    if (aboutRes && aboutRes.data) {
+      const about = aboutRes.data;
       window.PORTFOLIO_CONFIG.title = `Hi, I'm ${about.title}`;
       window.PORTFOLIO_CONFIG.subtitle = about.subtitle;
       
-      // Dynamically update headings in the DOM
       const titleEl = document.querySelector('h1');
       if (titleEl && titleEl.textContent.includes("Hi, I'm")) {
         titleEl.textContent = `Hi, I'm ${about.title}`;
@@ -81,15 +80,15 @@ async function loadSupabaseData() {
         subtitleEl.textContent = about.subtitle;
       }
       
-      // Update bio descriptions on the about tab
       const bioEl = document.getElementById('about-bio-description');
       if (bioEl) {
         bioEl.textContent = about.bio;
       }
     }
   } catch (err) {
-    console.error("Error loading live Supabase data:", err);
+    console.warn("Supabase fetch notice (using static fallback):", err.message || err);
   }
 }
 
 window.loadSupabaseData = loadSupabaseData;
+

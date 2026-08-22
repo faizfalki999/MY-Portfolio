@@ -124,9 +124,9 @@ function renderProjects() {
         <div class="flex flex-col gap-4">
           <div class="wireframe-box w-full aspect-[16/10] rounded-xl relative flex items-center justify-center overflow-hidden">
             ${project.image ? `
-              <img src="${project.image}" alt="${project.title}" class="absolute inset-0 w-full h-full object-cover transition-all duration-500 ${project.hoverImage ? 'group-hover:opacity-0 group-hover:scale-105' : 'group-hover:scale-105'}">
+              <img src="${project.image}" alt="${project.title}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-all duration-500 ${project.hoverImage ? 'group-hover:opacity-0 group-hover:scale-105' : 'group-hover:scale-105'}">
               ${project.hoverImage ? `
-                <img src="${project.hoverImage}" alt="${project.title} signup modal" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                <img src="${project.hoverImage}" alt="${project.title} screenshot" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
               ` : ''}
             ` : `
               <span class="text-xs uppercase tracking-widest text-textMuted font-mono select-none">${project.wireframeLabel || '[Project]'}</span>
@@ -232,7 +232,7 @@ function renderHomeHighlights() {
             <span>Featured Projects</span>
           </div>
           <div class="wireframe-box w-full aspect-[16/10] rounded-xl relative flex items-center justify-center overflow-hidden">
-            ${featuredProj.image ? `<img src="${featuredProj.image}" alt="${featuredProj.title}" class="absolute inset-0 w-full h-full object-cover">` : `<span class="text-xs uppercase tracking-widest text-textMuted font-mono select-none">${featuredProj.wireframeLabel || '[Project]'}</span>`}
+            ${featuredProj.image ? `<img src="${featuredProj.image}" alt="${featuredProj.title}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">` : `<span class="text-xs uppercase tracking-widest text-textMuted font-mono select-none">${featuredProj.wireframeLabel || '[Project]'}</span>`}
           </div>
           <div class="flex flex-col gap-1">
             <h3 class="text-base sm:text-lg font-medium text-textPrimary">${featuredProj.title}</h3>

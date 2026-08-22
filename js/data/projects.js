@@ -7,6 +7,20 @@
 
 const PROJECTS_DATA = [
   {
+    id: "valorant-poster-generator",
+    title: "Valorant Poster Generator",
+    description: "A local poster studio & layout editor for building high-res Night Market banners with batch image processing, custom skin positioning, and price/discount customization.",
+    tags: ["JAVASCRIPT", "CANVAS", "TOOLING", "AUTOMATION"],
+    wireframeLabel: "[Valorant Poster Studio]",
+    featured: true,
+    comingSoon: false,
+    badgeText: "Live",
+    status: "Completed",
+    image: "./assets/images/valorant-poster-cover.jpg",
+    hoverImage: "./assets/images/valorant-poster-preview.png",
+    link: "https://github.com/faizfalki999/ValorantPosterGenerator"
+  },
+  {
     id: "creative-web-studio",
     title: "Betryd Studio",
     description: "A streetwear creative studio site with a signup modal for early access, built and deployed live.",
@@ -23,3 +37,4 @@ const PROJECTS_DATA = [
 ];
 
 window.PROJECTS_DATA = PROJECTS_DATA;
+
