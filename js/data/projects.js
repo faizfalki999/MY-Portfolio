@@ -18,7 +18,7 @@ const PROJECTS_DATA = [
     status: "Completed",
     image: "./assets/images/valorant-poster-cover.jpg",
     hoverImage: "./assets/images/valorant-poster-preview.png",
-    link: "https://github.com/faizfalki999/ValorantPosterGenerator"
+    link: "https://github.com/faizfalki999/Valorant_poster_maker"
   },
   {
     id: "creative-web-studio",
