@@ -11,9 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.initRender();
   }
 
-  // 2. Set initial active tab state ('home')
+  // 2. Set initial active tab state (supports URL hash e.g. #projects)
+  const hashTab = window.location.hash ? window.location.hash.replace('#', '').toLowerCase() : '';
+  const validTabs = ['home', 'projects', 'videos', 'businesses', 'about'];
+  const initialTab = validTabs.includes(hashTab) ? hashTab : 'home';
   if (typeof window.switchTab === 'function') {
-    window.switchTab('home');
+    window.switchTab(initialTab);
   }
 
   // 3. Sync live data from Supabase asynchronously in background (non-blocking)

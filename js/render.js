@@ -142,9 +142,9 @@ function renderProjects() {
             <p class="text-sm text-textSecondary font-light mt-1">${project.description}</p>
           </div>
         </div>
-        <div class="mt-6 pt-3 border-t border-lightBorder/50 flex items-center justify-between text-xs text-textSecondary font-semibold uppercase tracking-wider">
-          <span>${project.tags.join(' • ')}</span>
-          <a href="${project.link}" ${targetAttr} class="text-white hover:underline flex items-center gap-1">${linkText} →</a>
+        <div class="mt-6 pt-3 border-t border-lightBorder/50 flex items-center justify-between gap-3 text-xs text-textSecondary font-semibold uppercase tracking-wider">
+          <span class="truncate">${project.tags.join(' • ')}</span>
+          <a href="${project.link}" ${targetAttr} class="text-white hover:underline flex items-center gap-1 shrink-0 whitespace-nowrap">${linkText} →</a>
         </div>
       </div>
     `;

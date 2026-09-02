@@ -21,6 +21,20 @@ const PROJECTS_DATA = [
     link: "https://github.com/faizfalki999/Valorant_poster_maker"
   },
   {
+    id: "printprox-kiosk",
+    title: "PrintProx Kiosk",
+    description: "A self-service QR code cloud printing kiosk featuring real-time WebSocket telemetry, mobile file uploads, automatic page counting, and mobile payment gateway integration.",
+    tags: ["NODE.JS", "EXPRESS", "WEBSOCKETS", "SQLITE"],
+    wireframeLabel: "[PrintProx Kiosk]",
+    featured: true,
+    comingSoon: false,
+    badgeText: "Live",
+    status: "Completed",
+    image: "./assets/images/printprox-kiosk.png",
+    hoverImage: "./assets/images/printprox-upload.png",
+    link: "https://github.com/faizfalki999"
+  },
+  {
     id: "creative-web-studio",
     title: "Betryd Studio",
     description: "A streetwear creative studio site with a signup modal for early access, built and deployed live.",
