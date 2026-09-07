@@ -105,12 +105,12 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Frame container with black background for left/right bars */
+/* Frame container */
 .gallery-thumb-box {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
-  background-color: #000000;
+  background-color: #121214;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,19 +118,36 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Object-fit contain ensures the entire picture fits inside the frame with black bars on sides */
+/* Object-fit cover ensures the image fills the frame completely edge-to-edge on all screens */
 .gallery-thumb-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  background-color: #000000;
   display: block;
   transition: transform 0.3s ease;
 }
 
 .gallery-item:hover .gallery-thumb-img {
-  transform: scale(1.03);
+  transform: scale(1.05);
+}
+
+/* Lightbox viewer image styling (if viewer container is used) */
+.viewer-image-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.viewer-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 /* Hover overlay tag */
