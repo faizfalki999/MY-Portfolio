@@ -61,6 +61,20 @@ const PROJECTS_DATA = [
     image: "./assets/images/haseeb-portfolio-hero.png",
     hoverImage: "./assets/images/haseeb-portfolio-preview.png",
     link: "https://haseeb-creative.vercel.app"
+  },
+  {
+    id: "taqi-multimedia-portfolio",
+    title: "Taqi Haider Portfolio",
+    description: "A grid-editorial multimedia design portfolio featuring bold streetwear typography, dynamic 2D vector animation, branding identity systems, and motion showcases.",
+    tags: ["MULTIMEDIA", "MOTION", "BRANDING", "2D ANIMATION"],
+    wireframeLabel: "[Taqi Portfolio]",
+    featured: true,
+    comingSoon: false,
+    badgeText: "Live",
+    status: "Completed",
+    image: "./assets/images/taqi-portfolio-hero.png",
+    hoverImage: "./assets/images/taqi-portfolio-preview.png",
+    link: "https://taqis-protfolio.vercel.app"
   }
 ];
 
