@@ -47,6 +47,20 @@ const PROJECTS_DATA = [
     image: "./assets/images/betryd-preview.png",
     hoverImage: "./assets/images/betryd-signup-modal.png",
     link: "https://www.betryd.com"
+  },
+  {
+    id: "haseeb-creative-portfolio",
+    title: "Haseeb Ali Portfolio",
+    description: "A dark-themed creative portfolio website engineered for a visual designer & video editor, featuring bold editorial typography, crimson accent styling, glassmorphism, and an interactive lightbox showcase.",
+    tags: ["HTML5", "CSS3", "JAVASCRIPT", "UI/UX"],
+    wireframeLabel: "[Haseeb Portfolio]",
+    featured: true,
+    comingSoon: false,
+    badgeText: "Live",
+    status: "Completed",
+    image: "./assets/images/haseeb-portfolio-preview.png",
+    hoverImage: "./assets/images/haseeb-portfolio.jpg",
+    link: "https://github.com/faizfalki999/Haseeb-s-Portfolio"
   }
 ];
 
