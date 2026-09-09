@@ -58,9 +58,9 @@ const PROJECTS_DATA = [
     comingSoon: false,
     badgeText: "Live",
     status: "Completed",
-    image: "./assets/images/haseeb-portfolio-preview.png",
-    hoverImage: "./assets/images/haseeb-portfolio.jpg",
-    link: "https://github.com/faizfalki999/Haseeb-s-Portfolio"
+    image: "./assets/images/haseeb-portfolio-hero.png",
+    hoverImage: "./assets/images/haseeb-portfolio-preview.png",
+    link: "https://haseeb-creative.vercel.app"
   }
 ];
 
