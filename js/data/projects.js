@@ -7,6 +7,20 @@
 
 const PROJECTS_DATA = [
   {
+    id: "airways-travel-tours",
+    title: "Airways Travel & Tours",
+    description: "A comprehensive commercial travel & tourism platform featuring international flight bookings, curated holiday packages, luxury Umrah & Hajj itineraries, fast-track visa assistance, and corporate partner integrations.",
+    tags: ["HTML5", "CSS3", "JAVASCRIPT", "PRODUCTION", "UI/UX"],
+    wireframeLabel: "[Airways Travel & Tours]",
+    featured: true,
+    comingSoon: false,
+    badgeText: "Live",
+    status: "Completed",
+    image: "./assets/images/airways-hero.png",
+    hoverImage: "./assets/images/airways-preview.png",
+    link: "https://airwaystravelandtours.com"
+  },
+  {
     id: "valorant-poster-generator",
     title: "Valorant Poster Generator",
     description: "A local poster studio & layout editor for building high-res Night Market banners with batch image processing, custom skin positioning, and price/discount customization.",
