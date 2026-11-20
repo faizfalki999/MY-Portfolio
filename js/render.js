@@ -116,7 +116,7 @@ function renderProjects() {
     }
 
     const isExternal = project.link && project.link.startsWith('http');
-    const linkText = project.badgeText === 'Live' ? 'Visit Site' : 'Details';
+    const linkText = !isExternal ? 'Case Study' : (project.badgeText === 'Live' ? 'Visit Site' : 'Details');
     const targetAttr = isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
 
     return `
@@ -144,7 +144,10 @@ function renderProjects() {
         </div>
         <div class="mt-6 pt-3 border-t border-lightBorder/50 flex items-center justify-between gap-3 text-xs text-textSecondary font-semibold uppercase tracking-wider">
           <span class="truncate">${project.tags.join(' • ')}</span>
-          <a href="${project.link}" ${targetAttr} class="text-white hover:underline flex items-center gap-1 shrink-0 whitespace-nowrap">${linkText} →</a>
+          <div class="flex items-center gap-3 shrink-0">
+            ${project.liveSite ? `<a href="${project.liveSite}" target="_blank" rel="noopener noreferrer" class="text-textSecondary hover:text-white transition-colors">Live ↗</a>` : ''}
+            <a href="${project.link}" ${targetAttr} class="text-white hover:underline flex items-center gap-1 shrink-0 whitespace-nowrap">${linkText} →</a>
+          </div>
         </div>
       </div>
     `;

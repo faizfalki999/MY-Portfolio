@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2. Set initial active tab state (supports URL hash e.g. #projects)
   const hashTab = window.location.hash ? window.location.hash.replace('#', '').toLowerCase() : '';
-  const validTabs = ['home', 'projects', 'videos', 'businesses', 'about'];
+  const validTabs = ['home', 'projects', 'videos', 'businesses', 'about', 'contact'];
   const initialTab = validTabs.includes(hashTab) ? hashTab : 'home';
   if (typeof window.switchTab === 'function') {
     window.switchTab(initialTab);

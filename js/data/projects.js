@@ -7,6 +7,33 @@
 
 const PROJECTS_DATA = [
   {
+    id: "nuvera-skincare",
+    title: "Nuvera Skincare: Shopify E-commerce Store",
+    description: "A custom-designed Shopify store for a Pakistani skincare brand, replacing its old AI-built website. It includes a full product catalogue, cash-on-delivery checkout, courier integration, and launch-ready SEO.",
+    tags: ["Shopify", "E-commerce", "Liquid", "Web Design", "Pakistan"],
+    wireframeLabel: "[Nuvera Skincare]",
+    featured: true,
+    comingSoon: false,
+    badgeText: "Live",
+    status: "Completed",
+    image: "./public/projects/nuvera/cover.png",
+    hoverImage: "./public/projects/nuvera/gallery-1.png",
+    link: "./projects/nuvera.html",
+    liveSite: "https://nuveraskincare.com",
+    client: "Nuvera Skincare, Lahore, Pakistan (skincare, body care, hair removal, fragrances)",
+    role: "Web designer and developer (store design, setup, and launch). [Confirm whether to mention Dice Digital here.]",
+    summary: "A custom-designed Shopify store for a Pakistani skincare brand, replacing its old AI-built website. It includes a full product catalogue, cash-on-delivery checkout, courier integration, and launch-ready SEO.",
+    highlights: [
+      "Custom Shopify theme built on Dawn, with polished homepage, FAQ, About, and Contact pages",
+      "15 products across Skincare, Bodycare, Fragrances, Deals, and a \"Build Your Bundle\" collection",
+      "Cash on Delivery checkout with local delivery rates: Rs 250 standard, free over Rs 5,000",
+      "PostEx courier app for order fulfilment and tracking",
+      "Inventory tracking, discount codes, and refund, shipping, and contact policies",
+      "Custom domain with DNS and SSL, plus SEO titles, meta descriptions, and image alt text"
+    ],
+    techStack: ["Shopify", "Liquid", "JSON templates", "Shopify Admin GraphQL API", "Shopify CLI"]
+  },
+  {
     id: "airways-travel-tours",
     title: "Airways Travel & Tours",
     description: "A comprehensive commercial travel & tourism platform featuring international flight bookings, curated holiday packages, luxury Umrah & Hajj itineraries, fast-track visa assistance, and corporate partner integrations.",

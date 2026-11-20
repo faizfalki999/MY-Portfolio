@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuvera Skincare: Shopify E-commerce Store — Case Study | Faiz</title>
+  <meta name="description" content="A custom-designed Shopify store for Pakistani skincare brand Nuvera Skincare, replacing an old AI-built website. Features Dawn-based theme, COD checkout, PostEx courier tracking, and SEO.">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
+
+  <!-- Google Fonts: Inter (UI), Caveat (Handwritten), Kanit (Headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=Kanit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Theme Extensions (Matches Portfolio Design System) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            darkBg: '#09090B',
+            darkCard: '#121214',
+            lightBorder: 'rgba(255, 255, 255, 0.08)',
+            textPrimary: '#FFFFFF',
+            textSecondary: '#A1A1AA',
+            textMuted: '#71717A',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Kanit', 'sans-serif'],
+            handwritten: ['Caveat', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body class="min-h-screen flex flex-col justify-between selection:bg-zinc-800 selection:text-white bg-darkBg text-textPrimary">
+
+  <!-- PAGE WRAPPER WITH INNER BORDER -->
+  <div class="flex-grow w-full max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex flex-col justify-between">
+
+    <!-- =========================================
+         1. HEADER & TOP NAVIGATION
+    ========================================= -->
+    <header class="flex items-center justify-between border border-lightBorder rounded-2xl px-6 py-4 bg-darkCard/30 backdrop-blur-md z-30 mb-8">
+      <!-- Logo back to home -->
+      <a href="../index.html#home" class="flex items-center gap-2 group">
+        <img src="../assets/images/logo.svg" alt="Faiz Logo" class="w-8 h-8 group-hover:scale-105 transition-transform duration-300">
+        <span class="font-display font-bold text-lg tracking-wider text-textPrimary group-hover:text-purple-400 transition-colors duration-300">FAIZ</span>
+      </a>
+
+      <!-- Desktop Back & Actions -->
+      <nav class="flex items-center gap-4 sm:gap-6 text-sm font-medium">
+        <a href="../index.html#projects" class="inline-flex items-center gap-2 text-textSecondary hover:text-textPrimary transition-colors uppercase tracking-wider text-xs sm:text-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span>All Projects</span>
+        </a>
+
+        <a href="https://nuveraskincare.com" target="_blank" rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-2 border border-emerald-500/30 bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest transition-all">
+          <span>Live Store ↗</span>
+        </a>
+
+        <!-- Let's Talk CTA Button -->
+        <a href="https://wa.me/923237858574" target="_blank"
+          class="inline-flex items-center gap-2 border border-lightBorder hover:border-textPrimary/40 rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm font-medium uppercase tracking-widest text-textPrimary hover:bg-white/5 transition-all duration-300">
+          <span>Let's Talk</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <!-- =========================================
+         2. CASE STUDY MAIN CONTAINER
+    ========================================= -->
+    <main class="flex-grow max-w-5xl mx-auto w-full">
+
+      <!-- Breadcrumbs & Status -->
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div class="inline-flex items-center gap-2 border border-lightBorder bg-darkCard/30 backdrop-blur-md rounded-full px-4 py-1.5 text-xs uppercase tracking-widest text-textSecondary">
+          <span class="w-2 h-2 rounded-full border border-emerald-400 bg-emerald-500/20"></span>
+          <span>E-Commerce Case Study • Shopify</span>
+        </div>
+
+        <div class="flex items-center gap-2 text-xs">
+          <span class="text-emerald-300 bg-emerald-950/80 border border-emerald-500/30 px-3 py-1 rounded-full uppercase tracking-widest font-medium">
+            Live
+          </span>
+        </div>
+      </div>
+
+      <!-- Title & Headline -->
+      <div class="mb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-textPrimary uppercase leading-tight">
+          Nuvera Skincare: Shopify E-commerce Store
+        </h1>
+        <p class="text-lg sm:text-xl text-textSecondary font-light mt-3 leading-relaxed">
+          A custom-designed Shopify store for a Pakistani skincare brand, replacing its old AI-built website. It includes a full product catalogue, cash-on-delivery checkout, courier integration, and launch-ready SEO.
+        </p>
+      </div>
+
+      <!-- Project Metadata Card -->
+      <div class="border border-lightBorder rounded-2xl bg-darkCard/25 p-6 mb-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-lightBorder">
+          
+          <!-- Client -->
+          <div class="flex flex-col gap-1 pr-4">
+            <span class="text-xs uppercase tracking-widest text-textMuted font-medium">Client</span>
+            <span class="text-sm font-semibold text-textPrimary">Nuvera Skincare</span>
+            <span class="text-xs text-textSecondary font-light">Lahore, Pakistan</span>
+            <span class="text-[11px] text-textMuted mt-1">Skincare, body care, hair removal, fragrances</span>
+          </div>
+
+          <!-- Role -->
+          <div class="flex flex-col gap-1 sm:pl-6 pr-4 pt-4 sm:pt-0">
+            <span class="text-xs uppercase tracking-widest text-textMuted font-medium">My Role</span>
+            <span class="text-sm font-semibold text-textPrimary">Web Designer & Developer</span>
+            <span class="text-xs text-textSecondary font-light">Store design, setup, and launch</span>
+            <span class="text-[11px] text-amber-400/90 font-mono mt-1">[Confirm whether to mention Dice Digital here.]</span>
+          </div>
+
+          <!-- Timeline & Status -->
+          <div class="flex flex-col gap-1 lg:pl-6 pr-4 pt-4 sm:pt-0">
+            <span class="text-xs uppercase tracking-widest text-textMuted font-medium">Status</span>
+            <div class="flex items-center gap-2 mt-0.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="text-sm font-semibold text-textPrimary">Completed & Deployed</span>
+            </div>
+            <span class="text-xs text-textSecondary font-light mt-1">Production Storefront</span>
+          </div>
+
+          <!-- Live Site Link -->
+          <div class="flex flex-col gap-2 lg:pl-6 pt-4 sm:pt-0">
+            <span class="text-xs uppercase tracking-widest text-textMuted font-medium">Live Website</span>
+            <a href="https://nuveraskincare.com" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300 hover:underline">
+              <span>nuveraskincare.com</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            <span class="text-[11px] text-textMuted">Active customer storefront</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Cover Image Showcase -->
+      <div class="mb-12">
+        <div class="border border-lightBorder rounded-2xl bg-darkCard/20 p-2 sm:p-3 overflow-hidden group">
+          <div class="wireframe-box w-full aspect-[16/10] rounded-xl relative flex items-center justify-center overflow-hidden cursor-pointer"
+            onclick="openLightbox('../public/projects/nuvera/cover.png', 'Nuvera Skincare Shopify Store Hero and Featured Products')">
+            <img src="../public/projects/nuvera/cover.png"
+              alt="Nuvera Skincare Shopify Store Hero and Featured Products"
+              loading="eager"
+              decoding="async"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+            <div class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-sm border border-lightBorder px-3 py-1.5 rounded-lg text-xs uppercase tracking-wider text-textSecondary flex items-center gap-1.5 opacity-90">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+              </svg>
+              <span>Click to Expand Cover</span>
+            </div>
+          </div>
+          <div class="px-3 py-3 flex items-center justify-between text-xs text-textSecondary border-t border-lightBorder/50 mt-2">
+            <span class="font-medium text-textPrimary uppercase tracking-wider">Storefront Cover Image</span>
+            <span class="font-mono text-textMuted text-[11px]">Placeholder: /public/projects/nuvera/cover.png</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Summary & Context -->
+      <div class="border border-lightBorder rounded-2xl bg-darkCard/20 p-6 md:p-8 mb-12">
+        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-textSecondary font-semibold mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+          <span>Background & Challenge</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold font-display text-textPrimary uppercase mb-4">
+          Redesigning Nuvera Skincare for Growth
+        </h2>
+        <div class="space-y-4 text-textSecondary font-light leading-relaxed text-base">
+          <p>
+            Nuvera Skincare is an emerging personal care and fragrance brand based in Lahore, Pakistan. The brand needed to replace its legacy AI-generated site with a robust, branded e-commerce infrastructure tailored specifically to the nuances of Pakistan's retail market.
+          </p>
+          <p>
+            The project entailed architecting a tailored Shopify experience using the Dawn theme framework, restructuring their 15-product catalogue into intuitive collections, integrating local cash-on-delivery logistics via PostEx, setting up tier-based delivery rates, and hardening store policies and metadata for organic search discovery.
+          </p>
+        </div>
+      </div>
+
+      <!-- Key Project Highlights -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-textSecondary font-semibold mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+          <span>Scope of Work</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold font-display text-textPrimary uppercase mb-6">
+          Key Implementation Highlights
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+          <!-- Highlight 1 -->
+          <div class="border border-lightBorder rounded-2xl bg-darkCard/20 p-5 flex flex-col gap-3 hover:border-textSecondary/25 transition-all">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase tracking-widest font-mono text-purple-400 font-semibold">[01] Theme Architecture</span>
+              <span class="w-2 h-2 rounded-full bg-purple-400/80"></span>
+            </div>
+            <h3 class="text-lg font-medium text-textPrimary">Custom Dawn Shopify Theme</h3>
+            <p class="text-sm text-textSecondary font-light leading-relaxed">
+              Custom Shopify theme built on Dawn, with polished homepage, FAQ, About, and Contact pages designed for intuitive customer navigation and brand elegance.
+            </p>
+          </div>
+
+          <!-- Highlight 2 -->
+          <div class="border border-lightBorder rounded-2xl bg-darkCard/20 p-5 flex flex-col gap-3 hover:border-textSecondary/25 transition-all">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase tracking-widest font-mono text-blue-400 font-semibold">[02] Product Catalogue</span>
+              <span class="w-2 h-2 rounded-full bg-blue-400/80"></span>
+            </div>
+            <h3 class="text-lg font-medium text-textPrimary">15 Products & Bundle Builder</h3>
+            <p class="text-sm text-textSecondary font-light leading-relaxed">
+              15 products across Skincare, Bodycare, Fragrances, Deals, and a "Build Your Bundle" collection designed to boost average order value.
+            </p>
+          </div>
+
+          <!-- Highlight 3 -->
+          <div class="border border-lightBorder rounded-2xl bg-darkCard/20 p-5 flex flex-col gap-3 hover:border-textSecondary/25 transition-all">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase tracking-widest font-mono text-emerald-400 font-semibold">[03] Payment & Rates</span>
+              <span class="w-2 h-2 rounded-full bg-emerald-400/80"></span>
+            </div>
+            <h3 class="text-lg font-medium text-textPrimary">Cash on Delivery (COD) Checkout</h3>
+            <p class="text-sm text-textSecondary font-light leading-relaxed">
+              Cash on Delivery checkout with local delivery rates: Rs 250 standard, free over Rs 5,000 for seamless conversion without card friction.
+            </p>
+          </div>
+
+          <!-- Highlight 4 -->
+          <div class="border border-lightBorder rounded-2xl bg-darkCard/20 p-5 flex flex-col gap-3 hover:border-textSecondary/25 transition-all">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase tracking-widest font-mono text-amber-400 font-semibold">[04] Courier Integration</span>
+              <span class="w-2 h-2 rounded-full bg-amber-400/80"></span>
+            </div>
+            <h3 class="text-lg font-medium text-textPrimary">PostEx Courier Fulfilment</h3>
+            <p class="text-sm text-textSecondary font-light leading-relaxed">
+              PostEx courier app for order fulfilment and tracking, automating booking slips, order dispatch, and customer shipment tracking.
+            </p>
+          </div>
+
+          <!-- Highlight 5 -->
+          <div class="border border-lightBorder rounded-2xl bg-darkCard/20 p-5 flex flex-col gap-3 hover:border-textSecondary/25 transition-all">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase tracking-widest font-mono text-pink-400 font-semibold">[05] Operations & Compliance</span>
+              <span class="w-2 h-2 rounded-full bg-pink-400/80"></span>
+            </div>
+            <h3 class="text-lg font-medium text-textPrimary">Inventory Tracking & Policies</h3>
+            <p class="text-sm text-textSecondary font-light leading-relaxed">
+              Inventory tracking, discount codes, and refund, shipping, and contact policies ensuring transparent customer expectations and smooth operations.
+            </p>
+          </div>
+
+          <!-- Highlight 6 -->
+          <div class="border border-lightBorder rounded-2xl bg-darkCard/20 p-5 flex flex-col gap-3 hover:border-textSecondary/25 transition-all">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase tracking-widest font-mono text-cyan-400 font-semibold">[06] Infrastructure & SEO</span>
+              <span class="w-2 h-2 rounded-full bg-cyan-400/80"></span>
+            </div>
+            <h3 class="text-lg font-medium text-textPrimary">Custom Domain, SSL & Launch SEO</h3>
+            <p class="text-sm text-textSecondary font-light leading-relaxed">
+              Custom domain with DNS and SSL, plus SEO titles, meta descriptions, and image alt text configured across products and pages.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tech Stack Badges -->
+      <div class="border border-lightBorder rounded-2xl bg-darkCard/20 p-6 md:p-8 mb-12">
+        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-textSecondary font-semibold mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Technology Framework</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold font-display text-textPrimary uppercase mb-4">
+          Tech Stack & Tools
+        </h2>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="px-4 py-2 rounded-xl border border-lightBorder bg-darkCard/40 text-xs sm:text-sm font-medium text-textPrimary uppercase tracking-wider">
+            Shopify
+          </span>
+          <span class="px-4 py-2 rounded-xl border border-lightBorder bg-darkCard/40 text-xs sm:text-sm font-medium text-textPrimary uppercase tracking-wider">
+            Liquid
+          </span>
+          <span class="px-4 py-2 rounded-xl border border-lightBorder bg-darkCard/40 text-xs sm:text-sm font-medium text-textPrimary uppercase tracking-wider">
+            JSON Templates
+          </span>
+          <span class="px-4 py-2 rounded-xl border border-lightBorder bg-darkCard/40 text-xs sm:text-sm font-medium text-textPrimary uppercase tracking-wider">
+            Shopify Admin GraphQL API
+          </span>
+          <span class="px-4 py-2 rounded-xl border border-lightBorder bg-darkCard/40 text-xs sm:text-sm font-medium text-textPrimary uppercase tracking-wider">
+            Shopify CLI
+          </span>
+        </div>
+      </div>
+
+      <!-- Gallery Showcase (3 Gallery Images) -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-textSecondary font-semibold mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          <span>Visual Documentation</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold font-display text-textPrimary uppercase mb-2">
+          Project Gallery
+        </h2>
+        <p class="text-textSecondary text-sm sm:text-base font-light mb-6">
+          Screenshots documenting storefront collections, the COD checkout flow, and PostEx logistics.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Gallery Image 1 -->
+          <div class="gallery-item group"
+            onclick="openLightbox('../public/projects/nuvera/gallery-1.png', 'Nuvera Skincare Collections and Product Catalogue')">
+            <div class="gallery-thumb-box relative">
+              <img src="../public/projects/nuvera/gallery-1.png"
+                alt="Nuvera Skincare Collections and Product Catalogue"
+                loading="lazy"
+                decoding="async"
+                class="gallery-thumb-img">
+              <div class="gallery-hover-tag">
+                <span class="zoom-icon-badge">⌕</span>
+                <span class="zoom-text">View Image</span>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <span class="gallery-category-tag">Catalogue & Bundles</span>
+              <h3 class="gallery-title">Product Collections</h3>
+              <p class="text-xs text-textSecondary font-light mt-1">15 products across Skincare, Bodycare, Fragrances, and Deals.</p>
+              <span class="text-[10px] text-textMuted font-mono mt-2">/public/projects/nuvera/gallery-1.png</span>
+            </div>
+          </div>
+
+          <!-- Gallery Image 2 -->
+          <div class="gallery-item group"
+            onclick="openLightbox('../public/projects/nuvera/gallery-2.png', 'Cash on Delivery Checkout and Shipping Rates Configuration')">
+            <div class="gallery-thumb-box relative">
+              <img src="../public/projects/nuvera/gallery-2.png"
+                alt="Cash on Delivery Checkout and Shipping Rates Configuration"
+                loading="lazy"
+                decoding="async"
+                class="gallery-thumb-img">
+              <div class="gallery-hover-tag">
+                <span class="zoom-icon-badge">⌕</span>
+                <span class="zoom-text">View Image</span>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <span class="gallery-category-tag">Checkout Flow</span>
+              <h3 class="gallery-title">COD & Delivery Rates</h3>
+              <p class="text-xs text-textSecondary font-light mt-1">Rs 250 standard delivery rate, free shipping over Rs 5,000 threshold.</p>
+              <span class="text-[10px] text-textMuted font-mono mt-2">/public/projects/nuvera/gallery-2.png</span>
+            </div>
+          </div>
+
+          <!-- Gallery Image 3 -->
+          <div class="gallery-item group"
+            onclick="openLightbox('../public/projects/nuvera/gallery-3.png', 'PostEx Courier Tracking Integration and Customer Policies')">
+            <div class="gallery-thumb-box relative">
+              <img src="../public/projects/nuvera/gallery-3.png"
+                alt="PostEx Courier Tracking Integration and Customer Policies"
+                loading="lazy"
+                decoding="async"
+                class="gallery-thumb-img">
+              <div class="gallery-hover-tag">
+                <span class="zoom-icon-badge">⌕</span>
+                <span class="zoom-text">View Image</span>
+              </div>
+            </div>
+            <div class="gallery-meta">
+              <span class="gallery-category-tag">Logistics & Tracking</span>
+              <h3 class="gallery-title">PostEx App & Policies</h3>
+              <p class="text-xs text-textSecondary font-light mt-1">Courier booking automation, tracking portal, and legal refund/shipping policies.</p>
+              <span class="text-[10px] text-textMuted font-mono mt-2">/public/projects/nuvera/gallery-3.png</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Live Site Action Banner -->
+      <div class="border border-emerald-500/20 rounded-2xl bg-emerald-950/20 p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 mb-12">
+        <div class="flex flex-col gap-1 text-center sm:text-left">
+          <span class="text-xs uppercase tracking-widest text-emerald-400 font-semibold">Ready to explore?</span>
+          <h3 class="text-xl sm:text-2xl font-bold font-display text-textPrimary uppercase">Experience the Live Storefront</h3>
+          <p class="text-sm text-textSecondary font-light">Explore the responsive Dawn layout, product pages, and checkout on the live domain.</p>
+        </div>
+        <a href="https://nuveraskincare.com" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold px-6 py-3.5 rounded-xl uppercase tracking-wider text-xs sm:text-sm transition-colors whitespace-nowrap shadow-lg shadow-emerald-950/50">
+          <span>Visit nuveraskincare.com ↗</span>
+        </a>
+      </div>
+
+      <!-- Navigation Footer CTA -->
+      <div class="flex items-center justify-between border-t border-lightBorder/60 pt-8 pb-4 text-xs uppercase tracking-wider">
+        <a href="../index.html#projects" class="text-textSecondary hover:text-white flex items-center gap-2 transition-colors">
+          <span>← Back to All Projects</span>
+        </a>
+        <a href="https://wa.me/923237858574" target="_blank" class="text-textSecondary hover:text-white flex items-center gap-2 transition-colors">
+          <span>Discuss a Project →</span>
+        </a>
+      </div>
+
+    </main>
+
+    <!-- =========================================
+         3. FOOTER SECTION
+    ========================================= -->
+    <footer class="mt-12 pt-8 border-t border-lightBorder relative w-full text-center">
+      <div class="flex flex-col items-center justify-center gap-1.5 py-4 select-none relative z-10">
+        <p class="text-textSecondary text-sm sm:text-base tracking-wide font-light">
+          &ldquo; Stay focused, keep building, and never stop learning. &rdquo;
+          <span class="font-handwritten text-purple-300 font-bold text-xl sm:text-2xl ml-2">&mdash; Faiz</span>
+        </p>
+        <div class="mt-2">
+          <span class="text-[10px] text-textMuted">&copy; 2026 Syed Faaiz-ur-Rehman. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- =========================================
+       LIGHTBOX VIEWER MODAL
+  ========================================= -->
+  <div id="lightbox-modal"
+    class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex-col items-center justify-center p-4"
+    onclick="closeLightbox(event)">
+    <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center" onclick="event.stopPropagation()">
+      <div class="w-full flex items-center justify-between pb-3 text-textSecondary text-xs uppercase tracking-wider">
+        <span id="lightbox-caption" class="font-medium text-textPrimary truncate pr-4"></span>
+        <button onclick="closeLightbox()" class="text-textSecondary hover:text-white p-2 rounded-lg bg-darkCard/60 border border-lightBorder transition-colors">
+          ✕ Close (Esc)
+        </button>
+      </div>
+      <div class="wireframe-box w-full max-h-[80vh] rounded-2xl overflow-hidden flex items-center justify-center bg-darkCard">
+        <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[75vh] object-contain">
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Script -->
+  <script>
+    function openLightbox(src, alt) {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-img');
+      const caption = document.getElementById('lightbox-caption');
+      if (modal && img) {
+        img.src = src;
+        img.alt = alt || 'Case study screenshot';
+        caption.textContent = alt || '';
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+</body>
+
+</html>
