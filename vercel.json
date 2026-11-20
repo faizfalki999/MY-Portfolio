@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/public/projects/nuvera/(.*)", "destination": "/assets/images/nuvera/$1" }
+  ]
+}
